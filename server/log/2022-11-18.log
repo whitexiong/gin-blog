@@ -1,0 +1,6 @@
+[gin-admin] 2022/11/18 - 05:01:13	[34minfo[0m	register table success
+[gin-admin] 2022/11/18 - 06:48:45	[34minfo[0m	register table success
+[gin-admin] 2022/11/18 - 06:49:44	[34minfo[0m	register table success
+[gin-admin] 2022/11/18 - 06:50:37	[34minfo[0m	register table success
+[gin-admin] 2022/11/18 - 06:50:37	[34minfo[0m	use middleware cors logger recovery
+[gin-admin] 2022/11/18 - 06:50:37	[34minfo[0m	routers register success

@@ -1,30 +1,26 @@
 package main
 
 import (
-	"blog/app/dao"
-	"blog/app/models"
-	"blog/app/setting"
-	"blog/routes"
-	"blog/routes/user"
-	"fmt"
+	"blog/common"
+	"blog/initialize"
 )
 
 func main() {
 
-	err := dao.InitMySQL(setting.Conf.MySQLConfig)
-	if err != nil {
-		fmt.Printf("init mysql failed, err:%v\n", err)
-		return
-	}
+	defer common.DB.Close()
+	routers := initialize.InitRouters()
+	_ = routers.Run(":" + common.CONFIG.System.Port)
+}
 
-	// 模型绑定
-	dao.DB.AutoMigrate(&models.User{})
-
-	// 加载多个APP的路由配置
-	routes.Include(user.Routers)
-	// 初始化路由
-	r := routes.Init()
-	if err := r.Run(); err != nil {
-		fmt.Println("startup service failed, err:%v\n", err)
-	}
+func init() {
+	//初始华配置
+	initialize.InitConf()
+	// 初始化日志
+	initialize.InitLog()
+	//初始化redis
+	// initialize.InitCache()
+	//初始化数据库
+	initialize.InitDb()
+	// 初始化Casbin
+	initialize.InitCasbin()
 }

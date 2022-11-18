@@ -10,12 +10,15 @@ https://www.cnblogs.com/binHome/p/14845617.html
 
 ## 启动
 
-
+npm install --legacy-peer-deps  // 忽略一些版本问题
 
 ## 目录结构分析
 
+```
 
 -- server   后端目录
+---- pkg 配置一些包
+---- dto 数据传输层
 ---- app    应用程序
 ------ conf 配置文件
 ------ controllers 控制器
@@ -25,12 +28,16 @@ https://www.cnblogs.com/binHome/p/14845617.html
 ---- routes 路由
 ------ user 路由组
 
+```
 
 
 > 创建一个 vite + vue 项目
 
 后端返回的 data 结构
 
+> 登录
+
+```json
 {
   "code": 200, // 状态码
   "msg": "success", // 返回信息
@@ -39,8 +46,11 @@ https://www.cnblogs.com/binHome/p/14845617.html
   }
 }
 
+```
 
 > 用户信息
+
+```json
 
 {
   "code": 200,
@@ -59,17 +69,22 @@ https://www.cnblogs.com/binHome/p/14845617.html
   }
 }
 
+```
+
 > 退出登录
 
+```json
 
 {
   "code": 200,
   "msg": "success"
 }
 
+```
 
 > 获取表格信息
 
+```json
 
 {
   "code": 200,
@@ -92,3 +107,5 @@ https://www.cnblogs.com/binHome/p/14845617.html
     }
   ]
 }
+
+```
